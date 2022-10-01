@@ -1,10 +1,11 @@
 import './App.css';
-import Calender from './Components/Calender';
+import MyCalendar from './Components/MyCalender';
 
 function App() {
   return (
     <div className="App">
-      <Calender/>
+      Habbit-Book
+      <MyCalendar/>
     </div>
   );
 }
