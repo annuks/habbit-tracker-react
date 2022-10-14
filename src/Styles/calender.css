@@ -8,3 +8,8 @@
 .rbc-time-view .rbc-time-content {
     display: none;
 } 
+
+.red{
+    background: red;
+    color: blue;
+}

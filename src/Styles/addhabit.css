@@ -1,0 +1,14 @@
+.addHabit{
+    display: block;
+    position: fixed;
+    /* height: 300px; */
+    width: 50%;
+    background: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    left: 25%;
+    padding: 0px 10px 17px 10px;
+    top: 10%;
+    z-index: 90;
+    border-radius: 15px;
+    color: dodgerblue;
+}
