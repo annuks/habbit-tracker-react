@@ -66,7 +66,7 @@ function App() {
           Add
         </Button>
       </div>
-      {isAddHabit && <AddHabbit close={setIsAddHabit}/>}
+      {isAddHabit && <AddHabbit setIsAddHabit={setIsAddHabit} close={setIsAddHabit}/>}
       <ShowHabits/>
       <div className='calender'>
         <MyCalendar events={events}/>
