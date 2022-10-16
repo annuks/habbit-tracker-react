@@ -2,33 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { appFirebase } from '../firebase';
 // import {  collection , getDocs, query } from 'firebase/firestore/lite';
 import { updateDoc,doc,getFirestore,collection,getDocs,query} from "firebase/firestore";
-
+import { useShop } from '../hooks';
 
 function ShowHabits() {
   const [ habits, setHabits ] = useState([]);
+  const shop = useShop();
   const db = getFirestore(appFirebase);
   const TodayDate = new Date().toDateString();
 
-
-  
-  function getDataFromDB(){
-    const q = query(collection(db, "habits"))
-
-    const querySnapshot =  getDocs(q);
-    querySnapshot.then((snapshot)=>{
-      const habits = snapshot.docs.map((doc)=>{
-        return {
-          id : doc.id,
-          ...doc.data()
-        }
-      })
-      setHabits(habits);
-
-    }).catch(err => console.log(err.message));
-  }
   useEffect(()=>{
-  getDataFromDB();
-  },[])
+    setHabits(shop.habits);
+  },[shop.habits])
+
   useEffect(()=>{
     console.log("Habits",habits)
   },[habits])
@@ -45,7 +30,7 @@ function ShowHabits() {
       actions
     })
     .then(docRef => {
-      getDataFromDB();  
+      shop.getDataFromDB();
     })
     .catch(error => {
         console.log(error);

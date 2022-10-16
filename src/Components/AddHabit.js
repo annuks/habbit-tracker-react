@@ -15,12 +15,14 @@ import AddTaskIcon from '@mui/icons-material/AddTask';
 import { appFirebase } from '../firebase';
 import { getFirestore, collection ,query , addDoc} from 'firebase/firestore/lite';
 import '../Styles/addhabit.css'
+import { useShop } from '../hooks';
 
 function AddHabit(props) {
   const [value, setValue] = useState('everyday');
   const [isSpecific, setIsSpecific] = useState(false);
   const db = getFirestore(appFirebase);
   const q = query(collection(db, "habits"));
+  const shop = useShop();
 
 
   const handleChange = (event) => {
@@ -39,7 +41,7 @@ function AddHabit(props) {
         weeks[i-6]=event.target[i].checked;
       }
     }
-
+    console.log("addddddddd",weeks,often)
     event.preventDefault();
     // console.log(habit,desc,often,weeks)
     addDoc(q,{
@@ -47,6 +49,7 @@ function AddHabit(props) {
       createAt : new Date(),
       actions : {}
     })
+    shop.getDataFromDB();
     props.setIsAddHabit(false);
   }
 
