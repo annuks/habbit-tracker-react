@@ -3,6 +3,10 @@ import { appFirebase } from '../firebase';
 // import {  collection , getDocs, query } from 'firebase/firestore/lite';
 import { updateDoc,doc,getFirestore,collection,getDocs,query} from "firebase/firestore";
 import { useShop } from '../hooks';
+import '../Styles/showHabit.css'
+import IconButton from '@mui/material/IconButton';
+import CheckIcon from '@mui/icons-material/Check';
+import ClearIcon from '@mui/icons-material/Clear';
 
 function ShowHabits() {
   const [ habits, setHabits ] = useState([]);
@@ -39,17 +43,28 @@ function ShowHabits() {
  
 
   return (
-    <div>
-      Today Data
-      <ul>
+    <div className='show-habit'>
+      <h2 className='heading'>Today Actions</h2>
+      <ul className='habit-list'>
         { habits.map((val,index)=>{
           return <li key={index}>
             {val.habit} {val.desc} 
             
-            {(val.actions.hasOwnProperty(TodayDate))?<>{val.actions[TodayDate]}</>:
-            <>
-              <button onClick={()=>{updateAction(index,val.id,'Done')}}>Done</button><button onClick={()=>{updateAction(index,val.id,'Not Done')}}>Not Done</button>
-            </>
+            {(val.actions.hasOwnProperty(TodayDate))?
+            
+            <div>
+              {val.actions[TodayDate]=='Done'? <span style={{color:'green'}}>Done</span>: <span style={{color:'red'}}>Not Done</span>}
+            
+            </div>
+            :
+            <div>
+              <IconButton color="primary" onClick={()=>{updateAction(index,val.id,'Done')}}>
+                <CheckIcon />
+              </IconButton>
+              <IconButton color="warning" onClick={()=>{updateAction(index,val.id,'Not Done')}}>
+                <ClearIcon />
+              </IconButton>
+            </div>
             }
           </li>
         })}

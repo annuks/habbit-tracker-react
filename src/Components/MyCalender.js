@@ -19,18 +19,15 @@ function MyCalendar(props) {
     setHabits(shop.habits);
   },[shop.habits]);
 
-  let getDaysArray = function(s,e) {for(var a=[],d=new Date(s);d<=new Date(e);d.setDate(d.getDate()+1)){ a.push(new Date(d).toLocaleDateString());}return a;};
-
+  let getDaysArray = function(s,e) {for(var a=[],d=new Date(s);d<=new Date(e);d.setDate(d.getDate()+1)){ a.push(new Date(d));}return a;};
+  
   const createEventsForCalender = ()=>{
-
     habits.map((val,index)=>{
-
       const date = new Date(0);
       date.setSeconds(val.createAt.seconds); 
       const timeString = date.toLocaleDateString();
       const date1 = new Date(timeString);
-      const daylist = getDaysArray(new Date(date1),new Date());
-
+      const daylist = getDaysArray(new Date(date),new Date());
       console.log("Diffre",daylist)
       daylist.map((dat,i)=>{
         const day = new Date(dat).getDay();
@@ -48,8 +45,10 @@ function MyCalendar(props) {
           console.log("jnjnjnj",event)
           cevents.push(event);
         }
+        console.log(dat,new Date(dat))
       })
     })
+    console.log("hbh",cevents)
     setEvents(cevents);
   }
 

@@ -1,0 +1,26 @@
+.show-habit{
+    margin-left: 10px;
+}
+.heading{
+    color: darkslategray;
+}
+.habit-list{
+    list-style-type: none;
+    max-height: 250px;
+    overflow: auto;
+}
+.habit-list li{
+    display: flex;
+    justify-content: space-between;
+    background: aliceblue;
+    margin: 8px 8px;
+    padding: 0 8px;
+    padding-bottom: 0px;
+    margin-left: -48px;
+    padding-left: 24px;
+    color: cadetblue;
+    font-size: medium;
+    align-items: center;
+    font-weight: 500;
+    height: 40px;
+}
