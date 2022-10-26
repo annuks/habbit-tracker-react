@@ -15,12 +15,15 @@ function ShowHabits() {
   const TodayDate = new Date().toDateString();
 
   useEffect(()=>{
-    setHabits(shop.habits);
+    let today = new Date().getDay();
+    let todayHabits = shop.habits.filter((val,id)=>{
+      if(val.weeks[today]){
+        return val;
+      }
+    })
+    setHabits(todayHabits);
   },[shop.habits])
 
-  useEffect(()=>{
-    console.log("Habits",habits)
-  },[habits])
 
 
   const updateAction = async (index,id,value)=>{
@@ -48,7 +51,7 @@ function ShowHabits() {
       <ul className='habit-list'>
         { habits.map((val,index)=>{
           return <li key={index}>
-            {val.habit} {val.desc} 
+            {val.habit}
             
             {(val.actions.hasOwnProperty(TodayDate))?
             

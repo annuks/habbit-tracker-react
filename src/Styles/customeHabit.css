@@ -1,0 +1,34 @@
+
+.dialog{
+    min-width: 50%;
+}
+
+.desc{
+    margin: -5px;
+    color: cadetblue;
+}
+.descr{
+    margin: 4px;
+    margin-left: -5px;
+}
+.habit-action{
+    list-style-type: none;
+    max-height: 250px;
+    overflow: auto;
+    min-width: 400px
+}
+.habit-action li{
+    display: flex;
+    justify-content: space-between;
+    background: aliceblue;
+    margin: 8px 8px;
+    padding: 0 8px;
+    padding-bottom: 0px;
+    margin-left: -48px;
+    padding-left: 24px;
+    color: black;
+    font-size: medium;
+    align-items: center;
+    font-weight: 500;
+    height: 40px;
+}

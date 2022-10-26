@@ -41,15 +41,14 @@ function AddHabit(props) {
         weeks[i-6]=event.target[i].checked;
       }
     }
-    console.log("addddddddd",weeks,often)
     event.preventDefault();
-    // console.log(habit,desc,often,weeks)
     addDoc(q,{
       habit,desc,often,weeks,
       createAt : new Date(),
       actions : {}
+    }).then((docRef)=>{
+      shop.getDataFromDB();
     })
-    shop.getDataFromDB();
     props.setIsAddHabit(false);
   }
 
