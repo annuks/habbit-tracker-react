@@ -1,3 +1,4 @@
+//importing required resources
 import React, { useEffect, useState } from 'react'
 import { appFirebase } from '../firebase';
 // import {  collection , getDocs, query } from 'firebase/firestore/lite';
@@ -8,6 +9,8 @@ import IconButton from '@mui/material/IconButton';
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 
+
+// code for showing habbits details
 function ShowHabits() {
   const [ habits, setHabits ] = useState([]);
   const shop = useShop();

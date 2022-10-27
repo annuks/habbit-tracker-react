@@ -1,9 +1,10 @@
+//importing required resources
 import { useContext, useEffect, useState } from "react";
 import { HabitContext } from "../provider/ShopProvider";
 import { appFirebase } from '../firebase';
 import { getFirestore,collection,getDocs,query} from "firebase/firestore";
 
-
+// creating custom hooks for managing state of all habits
 export const useShop = () => {
   return useContext(HabitContext);
 };
@@ -11,7 +12,7 @@ export const useShop = () => {
 export const useProvideShop = () => {
  const [habits,setHabits] = useState([]);
 
-
+// fetching data from DB
  function getDataFromDB(){
   const db = getFirestore(appFirebase);
   const q = query(collection(db, "habits"))

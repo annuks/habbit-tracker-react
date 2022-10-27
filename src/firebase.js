@@ -1,9 +1,5 @@
-// Import the functions you need from the SDKs you need
+// configuring firebase
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAEHlYFIJ261htP8XQuha3Nm2K0H9Opwis",
     authDomain: "habittracker-3e89c.firebaseapp.com",

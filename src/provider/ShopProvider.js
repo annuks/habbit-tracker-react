@@ -1,3 +1,5 @@
+
+//code for implementing providers
 import { createContext } from "react";
 import { useProvideShop } from "../hooks";
 

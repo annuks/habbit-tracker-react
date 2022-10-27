@@ -1,3 +1,4 @@
+//importing required resources
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
@@ -9,6 +10,8 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 import '../Styles/customeHabit.css'
+//code for creating a custom dialog box using material ui
+
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -43,7 +46,7 @@ function BootstrapDialogTitle(props) {
     </DialogTitle>
   );
 }
-
+//props for accesing dynamic data set
 export default function CustomizedDialogs(props) {
   const [open, setOpen] = React.useState(false);
   const [title,setTitle] = React.useState("");
@@ -57,6 +60,8 @@ export default function CustomizedDialogs(props) {
     props.setIsOpen(false);
   };
 
+
+// using custom hooks for managing state
   React.useEffect(()=>{
     
     setOpen(props.open)

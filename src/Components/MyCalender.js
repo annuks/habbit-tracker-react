@@ -1,3 +1,4 @@
+//importing required resources
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
@@ -7,8 +8,7 @@ import { useShop } from '../hooks';
 import CustomizedDialogs from './CustomizedDialogs';
 const localizer = momentLocalizer(moment)
 
-
-
+//code for creating calendar for add and view habbit
 
 function MyCalendar(props) {
   const [habits,setHabits] = useState([]);
@@ -17,7 +17,7 @@ function MyCalendar(props) {
   const [habit,setHabit] = useState({});
   let cevents = [];
   const shop = useShop();
-
+//using custom hooks  for managing state
   useEffect(()=>{
     setHabits(shop.habits);
   },[shop.habits]);
@@ -53,23 +53,20 @@ function MyCalendar(props) {
             'color':'white',
             'dow': [ 1, 4 ]
           }
-          // console.log("jnjnjnj",event)
           cevents.push(event);
         }
         // console.log(dat,new Date(dat))
       })
     })
-    // console.log("hbh",cevents)
+    
     setEvents(cevents);
   }
 
   useEffect(()=>{
-    // console.log("Chutiya",habits)
     createEventsForCalender();
    },[habits])
 
    useEffect(()=>{
-    // console.log("Events in Cl",events)
    },[events])
   
 

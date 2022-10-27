@@ -1,3 +1,5 @@
+//importing required resources
+
 import { useState } from 'react'
 import * as React from 'react';
 import Radio from '@mui/material/Radio';
@@ -17,6 +19,7 @@ import { getFirestore, collection ,query , addDoc} from 'firebase/firestore/lite
 import '../Styles/addhabit.css'
 import { useShop } from '../hooks';
 
+//Creating components for adding a new habbit
 function AddHabit(props) {
   const [value, setValue] = useState('everyday');
   const [isSpecific, setIsSpecific] = useState(false);
@@ -30,6 +33,7 @@ function AddHabit(props) {
     
   };
 
+  //handling submit event
   const handleFormSubmit = (event) => {
     // console.log("evens",event);
     let habit = event.target[0].value;
@@ -52,6 +56,8 @@ function AddHabit(props) {
     props.setIsAddHabit(false);
   }
 
+
+  //using hooks for managing state
   React.useEffect(()=>{
     if(value==='specific'){
       setIsSpecific(true);
@@ -82,6 +88,8 @@ function AddHabit(props) {
             <FormControlLabel value="specific" control={<Radio />} label="Specific" />
           </RadioGroup>
       </FormControl>
+      
+    {/* code for whether habbit is for evereday or on specific days */}
       { isSpecific ? 
       <FormGroup style={{display:'flex',flexDirection:'row'}}>
         <FormControlLabel control={<Checkbox value="Sunday" />} label="Sunday" />
